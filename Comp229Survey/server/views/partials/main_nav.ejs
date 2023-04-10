@@ -1,0 +1,56 @@
+<!-- Main Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/"><span><img src="/Assets/images/Logo.png" width="65" height="65" class="img-fluid" alt="Logo Image"></span> Team Star's Survey Site</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+
+      <% if (title == "Home"){ %>
+      <li class="nav-item active">
+      <% } else  { %>
+      <li class="nav-item">
+      <% } %>
+        <a class="nav-link" href="/home"><i class="fas fa-house-user"></i> Home </a>
+      </li>
+
+       <!-- Active Surveys-->
+       <% if (title=="Active Surveys"){%>
+        <li class="nav-item active">
+      <%} else{%>
+        <li class="nav-item">
+      <% } %> 
+        <a class="nav-link" href="/survey-list"><i class="fas fa-info-circle"></i> Active Surveys</a>
+        <!--<i class="fa-solid fa-square-poll-vertical"></i>-->
+      </li>
+   
+      <!-- Create Survey-->
+      <% if (title == "Create Survey") { %>
+      <li class="nav-item active">
+      <% } else  { %>
+      <li class="nav-item">
+      <% } %>
+        <a class="nav-link" href="/survey-list/add"><i class="fas fa-cogs"></i> Create a New Survey </a>
+      </li>
+
+      <%if(typeof displayName =='string' && displayName){%>
+        <li class="navbar-text"><i class="fas fa-lg fa-user"></i>Welcome, <%=displayName%></li>
+        <li class="nav-item"><a href="/logout" class="nav-link"><i class="fas fa-lg fa-sign-out-alt"></i>logout</a></li>
+        <%}else{%>
+          <li class ="nav-item"><a href="/users/" class="nav-link"><i class="fas fa-lg fa-sign-in-alt"></i>Login</a></li>
+          <%}%>
+
+          <!--
+       <!-- Login page Surveys
+       <% if (title=="Log in"){%>
+        <li class="nav-item active">
+      <%} else{%>
+        <li class="nav-item">
+      <% } %> 
+        <a class="nav-link" href="/users"><i class="fas fa-info-circle"></i> Log in</a>
+        <!--<i class="fa-solid fa-square-poll-vertical"></i>-->
+      </li>
+      
+</nav>
